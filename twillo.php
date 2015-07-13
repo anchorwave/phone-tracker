@@ -3,7 +3,7 @@
 Plugin Name: WP Phone Tracker
 Plugin URI: https://www.anchorwave.com
 Description: This plugin is used to track phone numbers on twillo.com
-Version: 1.0.0
+Version: 1.0.2
 Author: Anchor Wave
 Author URI: https://www.anchorwave.com
 License: GPL2
@@ -12,25 +12,28 @@ License: GPL2
 
 define('MY_BASE', plugin_dir_path( __FILE__ ));
 require_once MY_BASE . 'update.php';
-
-if ( is_admin() && class_exists('WP_GitHub_Updater') && WP_GitHub_Updater::VERSION == '1.6' ) {
-	if ( !defined('WP_GITHUB_FORCE_UPDATE') && isset( $_GET['force-check'] ) && $_GET['force-check'] == '1' && current_user_can('update_plugins') ){	
-		define('WP_GITHUB_FORCE_UPDATE', true);
+add_action('admin_init', 'phone_tracker_updates');
+function phone_tracker_updates(){
+	if ( is_admin() && class_exists('WP_GitHub_Updater') && WP_GitHub_Updater::VERSION == '1.6' ) {
+		if ( !defined('WP_GITHUB_FORCE_UPDATE') && isset( $_GET['force-check'] ) && $_GET['force-check'] == '1' && current_user_can('update_plugins') ){	
+			define('WP_GITHUB_FORCE_UPDATE', true);
+			echo "Forced check of updates";
+		}
+	    $config = array(
+	        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
+	        'proper_folder_name' => 'phone-tracker', // this is the name of the folder your plugin lives in
+	        'api_url' => 'https://api.github.com/repos/anchorwave/phone-tracker', // the GitHub API url of your GitHub repo
+	        'raw_url' => 'https://raw.github.com/anchorwave/phone-tracker/master', // the GitHub raw url of your GitHub repo
+	        'github_url' => 'https://github.com/anchorwave/phone-tracker', // the GitHub url of your GitHub repo
+	        'zip_url' => 'https://github.com/anchorwave/phone-tracker/zipball/master', // the zip url of the GitHub repo
+	        'sslverify' => true, // whether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
+	        'requires' => '4.0', // which version of WordPress does your plugin require?
+	        'tested' => '4.2', // which version of WordPress is your plugin tested up to?
+	        'readme' => 'README.md',
+	        'access_token' => '', // Access private repositories by authorizing under Appearance > GitHub Updates when this example plugin is installed
+	    );
+	    $githubupdater = new WP_GitHub_Updater($config);
 	}
-    $config = array(
-        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
-        'proper_folder_name' => 'phone-number-swappy', // this is the name of the folder your plugin lives in
-        'api_url' => 'https://api.github.com/repos/jbokhari/phone-number-swappy', // the GitHub API url of your GitHub repo
-        'raw_url' => 'https://raw.github.com/jbokhari/phone-number-swappy/master', // the GitHub raw url of your GitHub repo
-        'github_url' => 'https://github.com/jbokhari/phone-number-swappy', // the GitHub url of your GitHub repo
-        'zip_url' => 'https://github.com/jbokhari/phone-number-swappy/zipball/master', // the zip url of the GitHub repo
-        'sslverify' => true, // whether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
-        'requires' => '4.0', // which version of WordPress does your plugin require?
-        'tested' => '4.2', // which version of WordPress is your plugin tested up to?
-        'readme' => 'README.md',
-        'access_token' => '', // Access private repositories by authorizing under Appearance > GitHub Updates when this example plugin is installed
-    );
-    $githubupdater = new WP_GitHub_Updater($config);
 }
 
 require_once(MY_BASE . 'config/config.php');
