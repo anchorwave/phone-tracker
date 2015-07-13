@@ -1,0 +1,206 @@
+.graph-container,
+.graph-container div,
+.graph-container a,
+.graph-container span {
+    margin: 0;
+    padding: 0;
+}
+
+/* Gradinet and Rounded Corners */
+.graph-container, #tooltip, .graph-info a {
+    background: #ffffff;
+    background: -moz-linear-gradient(top, #ffffff 0%, #f9f9f9 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#f9f9f9));
+    background: -webkit-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+    background: -o-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+    background: -ms-linear-gradient(top, #ffffff 0%,#f9f9f9 100%);
+    background: linear-gradient(to bottom, #ffffff 0%,#f9f9f9 100%);
+ 
+    -webkit-border-radius: 3px;
+    -moz-border-radius: 3px;
+    border-radius: 3px;
+}
+
+/* Graph Container */
+.graph-container {
+    position: relative;
+    width:95%;
+    height: 200px;
+	margin:0;
+    padding: 1%;
+	border:1px Solid #ccc;
+    -webkit-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+    -moz-box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+    box-shadow: 0px 1px 2px rgba(0,0,0,.1);
+}
+ 
+.graph-container > div {
+    position: absolute;
+    width: inherit;
+    height: inherit;
+    top: 10px;
+    left: 25px;
+}
+ 
+.graph-info {
+    width:100%;
+    margin-bottom: 10px;
+}
+
+/*Graph Legend & Buttons*/
+.graph-info a {
+    position: relative;
+    display: inline-block;
+    float: left;
+    height: 20px;
+    padding: 7px 10px 5px 30px;
+    margin-right: 10px;
+    text-decoration: none;
+    cursor: default;
+}
+
+/* Color Circles */
+.graph-info a:before {
+    position: absolute;
+    display: block;
+    content: '';
+    width: 8px;
+    height: 8px;
+    top: 13px;
+    left: 13px;
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px;
+}
+ 
+.graph-info .visitors { border-bottom: 2px solid #71c73e; }
+.graph-info .returning { border-bottom: 2px solid #77b7c5; }
+ 
+.graph-info .visitors:before { background: #71c73e; }
+.graph-info .returning:before { background: #77b7c5; }
+
+/* Lines & Bars Buttons */
+#lines, #bars {
+    width: 34px;
+    height: 32px;
+    padding: 0;
+    margin-left: 0;
+    margin-right: 10px;
+    border-bottom: 2px solid #71c73e;
+    float: left;
+    cursor: pointer;
+}
+ 
+#lines.active, #bars.active {
+    background: #82d344;
+    background: -moz-linear-gradient(top, #82d344 0%, #71c73e 100%);
+    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#82d344), color-stop(100%,#71c73e));
+    background: -webkit-linear-gradient(top, #82d344 0%,#71c73e 100%);
+    background: -o-linear-gradient(top, #82d344 0%,#71c73e 100%);
+    background: -ms-linear-gradient(top, #82d344 0%,#71c73e 100%);
+    background: linear-gradient(to bottom, #82d344 0%,#71c73e 100%);
+}
+ 
+#lines span, #bars span {
+    display: block;
+    width: 34px;
+    height: 32px;
+    background: url(../images/lines.png) no-repeat 9px 12px;
+}
+ 
+#bars span { background: url(../images/bars.png) no-repeat center 10px; }
+ 
+#lines.active span { background-image: url(../images/lines_active.png); }
+ 
+#bars.active span { background-image: url(../images/bars_active.png); }
+/* Clear Floats */
+.graph-info:before, .graph-info:after,
+.graph-container:before, .graph-container:after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#tooltip, .graph-info a {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: bold;
+    font-size: 12px;
+    line-height: 20px;
+    color: #646464;
+}
+ 
+.tickLabel {
+    font-weight: bold;
+    font-size: 12px;
+    color: #666;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+}
+
+.yAxis .tickLabel:first-child,
+.yAxis .tickLabel:last-child { display: none; }
+#tooltip {
+position: absolute;
+display: none;
+padding: 5px 10px;
+border: 1px solid #e1e1e1;
+}
+.calls_div
+{width: 100%;
+float: left;
+padding-top: 20px;
+display: block;}
+.calls_div_inn{float: left;
+/*width: 170px;*/width: 180px;
+margin-left: 25px; position:relative;
+border: 1px solid #999999;
+min-height: 61px;border-radius: 5px;
+box-shadow: 1px 1px 3px 0px #888;
+padding: 10px;}
+.calls_div .calls_div_inn:first-child{margin-left:0;}
+.calls_div .calls_div_inn h5{
+float: left;width: 135px;
+/*width: 105px;*/
+font-size: 12px;
+margin: 0;}
+.calls_div .calls_div_inn img{float:left; margin-right:10px;}
+.calls_div .calls_div_inn h4{
+float: left;
+width: 105px;
+margin:0;
+margin-top:10px;
+font-size: 22px;
+font-weight: bold;}
+.calls_div_inn .time{position: absolute;
+left: 12px;
+top: 11px;
+width: 50px;}
+.calls_div_inn .time .year{color:#FFFFFF; font-family:Georgia, "Times New Roman", Times, serif; width:100%;text-align: center;font-weight: bold;
+float: left;}
+.calls_div_inn .time .month{color:#000000; font-family:Georgia,serif;width:100%;text-align: center;
+float: left;padding-top: 10px;
+font-size: 18px;
+font-weight: bold;
+text-transform: uppercase;}
+.graph-container .yaxisLabel {width: auto;
+top: 50%;
+left: 2px;
+transform: rotate(-90deg);
+-o-transform: rotate(-90deg);
+-ms-transform: rotate(-90deg);
+-moz-transform: rotate(-90deg);
+-webkit-transform: rotate(-90deg);
+transform-origin: 0 0;
+-o-transform-origin: 0 0;
+-ms-transform-origin: 0 0;
+-moz-transform-origin: 0 0;
+-webkit-transform-origin: 0 0;}
+.graph-container .axisLabel {
+position: absolute;
+text-align: center;
+font-size: 12px;
+height:auto;
+}
+.ui-datepicker.ui-datepicker-multi{left:850px !important; height:auto !important;}
+.ui-datepicker.ui-datepicker-multi{height:auto !important;}
+#graph_date_from,#graph_date_to{cursor:pointer; padding:5px 10px;}
+#graph_date_from.hasDatepicker:focus,#graph_date_to.hasDatepicker:focus{background:#FFFFFF; border:1px solid #2583AE;}
