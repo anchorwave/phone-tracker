@@ -13,4 +13,4 @@ Optional:
 
 **This is for for GitHub Updater**
 
-~Current Version:1.0.2~
+~Current Version:1.0.3~
