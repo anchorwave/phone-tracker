@@ -17,7 +17,6 @@ function phone_tracker_updates(){
 	if ( is_admin() && class_exists('WP_GitHub_Updater') && WP_GitHub_Updater::VERSION == '1.6' ) {
 		if ( !defined('WP_GITHUB_FORCE_UPDATE') && isset( $_GET['force-check'] ) && $_GET['force-check'] == '1' && current_user_can('update_plugins') ){	
 			define('WP_GITHUB_FORCE_UPDATE', true);
-			echo "Forced check of updates";
 		}
 	    $config = array(
 	        'slug' => plugin_basename(__FILE__), // this is the slug of your plugin
@@ -33,6 +32,7 @@ function phone_tracker_updates(){
 	        'access_token' => '', // Access private repositories by authorizing under Appearance > GitHub Updates when this example plugin is installed
 	    );
 	    $githubupdater = new WP_GitHub_Updater($config);
+	    var_dump($githubupdater);
 	}
 }
 
