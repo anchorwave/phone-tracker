@@ -18,7 +18,7 @@ if(!class_exists('WP_List_Table'))
 }
 
 global $wpdb;
-define('MY_BASE_URL', plugins_url('twillo') . '/');
+define('MY_BASE_URL', plugins_url('phone-tracker') . '/');
 define('PHONES_TABLE', $wpdb->prefix . "tw_phones");
 define('CALLS_TABLE', $wpdb->prefix . "tw_calls");
 

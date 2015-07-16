@@ -3,7 +3,7 @@
 Plugin Name: WP Phone Tracker
 Plugin URI: https://www.anchorwave.com
 Description: This plugin is used to track phone numbers on twillo.com
-Version: 1.0.3
+Version: 1.0.4
 Author: Anchor Wave
 Author URI: https://www.anchorwave.com
 License: GPL2
