@@ -17,7 +17,7 @@
 <p style="border:1px solid #888; width:auto; margin-right:10px; padding:10px;"><img src="<?php echo MY_BASE_URL . 'images/phone_grey.png'?>" style="vertical-align:middle" alt="" /> <strong style="color:#000;font-size: 16px;text-decoration:none;font-weight:bold;">Calls</strong> &nbsp; &nbsp; <a style="color:#464646;font-size: 16px;text-decoration:none;" href="?page=add-phone-number&action=edit&p_id=<?php echo $data['phoneRow']['p_id']?>"><img src="<?php echo MY_BASE_URL . 'images/edit.png'?>" style="vertical-align:bottom" alt="" /> Settings</a></p>
 	<?php $this->wp_messages($data);?><br />
 <!--<link media="all" type="text/css" href="http://code.jquery.com/ui/1.8.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />-->
-<link media="all" type="text/css" href="http://code.jquery.com/ui/1.8.24/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<link media="all" type="text/css" href="//code.jquery.com/ui/1.8.24/themes/smoothness/jquery-ui.css" rel="stylesheet" />
 <link media="all" type="text/css" href="<?php echo MY_BASE_URL?>css/flot.css" rel="stylesheet" />
 <link rel="stylesheet" href="<?php echo MY_BASE_URL?>css/music.css" type="text/css" />
 <!--<script src="<?php //echo MY_BASE_URL?>js/jquery-ui.js"></script>-->
