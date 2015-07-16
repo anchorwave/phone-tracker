@@ -1,5 +1,5 @@
-<!--<link media="all" type="text/css" href="http://code.jquery.com/ui/1.8.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />-->
-<link media="all" type="text/css" href="http://code.jquery.com/ui/1.8.24/themes/smoothness/jquery-ui.css" rel="stylesheet" />
+<!--<link media="all" type="text/css" href="//code.jquery.com/ui/1.8.3/themes/smoothness/jquery-ui.css" rel="stylesheet" />-->
+<link media="all" type="text/css" href="//code.jquery.com/ui/1.8.24/themes/smoothness/jquery-ui.css" rel="stylesheet" />
 <link media="all" type="text/css" href="<?php echo MY_BASE_URL?>css/flot.css" rel="stylesheet" />
 <!--<script src="<?php //echo MY_BASE_URL?>js/jquery-ui.js"></script>-->
 <script src="//code.jquery.com/ui/1.8.24/jquery-ui.js"></script>
