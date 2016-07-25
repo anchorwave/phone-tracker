@@ -32,7 +32,7 @@ class Phones_Table extends WP_List_Table
 				$actions['enrec'] = sprintf('<a href="?page=%s&action=%s&phone=%s">Enable Recording</a>',$_REQUEST['page'],'enrec',$item['p_id']);
 			}
 			
-			$actions['inactivate'] = sprintf('<a href="?page=%s&action=%s&phone=%s">Inactivate</a>',$_REQUEST['page'],'inactivate',$item['p_id']);
+			$actions['inactivate'] = sprintf('<a href="?page=%s&action=%s&phone=%s">Deactivate</a>',$_REQUEST['page'],'inactivate',$item['p_id']);
 		}
 		else
 		{
@@ -102,7 +102,7 @@ class Phones_Table extends WP_List_Table
 			$actions = array(
 				'enrec'			=> 'Enable Recording',
 				'disrec'		=> 'Disable Recording',
-				'inactivate'	=> 'Inactivate'
+				'inactivate'	=> 'Deactivate'
 			);
 		}
 		return $actions;

@@ -40,13 +40,13 @@ class tw_install
 		add_option('tw_atoken', '');
 	}
 	
-	function uninstall()
+	static function uninstall()
 	{
 		delete_option('tw_sid');
 		delete_option('tw_atoken');
 	}
 	
-	function admin_menu()
+	static function admin_menu()
 	{
 		add_menu_page('WP Phone Tracker', 'WP Phone Tracker', 'manage_options','tw-phone-tracker', 'tw_phone_numbers', MY_BASE_URL . 'images/phone_grey.png', 36);
 		

@@ -13,9 +13,13 @@ Optional:
 
 *This is for for GitHub Updater*
 
-~Current Version:1.0.8~
+~Current Version:1.0.9~
 
 #### changelog
+
+**v1.0.9**
+: Changed verbiage -- "Inactivate" to "Deactivate"
+: Added sanitization to new phone numbers. Spaces and non-numeric values will no longer be saved
 
 **v1.0.8**
 : Fixed WP_Github_Updater clash, now compatible with phone-number-swappy 1.1.10

@@ -23,13 +23,13 @@ class tw_controller
 	
 	function wp_messages($data)
 	{
-		if(trim($data['wp_error']) != '')
-		{
-			echo '<div id="message" class="error"><p><strong>' . $data['wp_error'] . '</strong></p></div>';
+		$wp_error = isset( $data['wp_error'] ) ? trim( $data['wp_error'] ) : "";
+		$wp_msg = isset( $data['wp_msg'] ) ? trim( $data['wp_msg'] ) : "";
+		if( $wp_error != ''){
+			echo '<div id="message" class="error"><p><strong>' . $wp_error . '</strong></p></div>';
 		}
-		if(trim($data['wp_msg']) != '')
-		{
-			echo '<div id="message" class="updated fade"><p><strong>' . $data['wp_msg'] . '</strong></p></div>';
+		if( $wp_msg != ''){
+			echo '<div id="message" class="updated fade"><p><strong>' .  $wp_msg  . '</strong></p></div>';
 		}
 	}
 	
@@ -180,9 +180,10 @@ class tw_controller
 			wp_die( __('You do not have sufficient permissions to access this page.') );
 		}
 		
-		if( isset($_GET["p_id"]))
+		if( isset( $_GET["p_id"] ))
 		{
-			$p_id = htmlspecialchars($_GET["p_id"]);
+			$p_id = trim($_GET["p_id"]);
+			$p_id = htmlspecialchars($p_id);
 			if( !is_numeric($p_id) )
 			$p_id = 0;
 		}
@@ -194,10 +195,14 @@ class tw_controller
 			$data = $_POST;
 			$rec_status = (isset($_POST['rec_status']) && $_POST['rec_status'] == 1)?1:0;
 			
-			$chkNoExists = $wpdb->query("SELECT p_id FROM " . PHONES_TABLE . " where phn_no = '" . trim($_POST['phn_no']) . "' and p_id <> '" . trim($_POST['p_id']) . "'");
+			$phn_no = preg_replace('/\D/', '', $_POST['phn_no'] );
+			$dest_no = preg_replace('/\D/', '', $_POST['dest_no'] );
+
+			$chkNoExists = $wpdb->query("SELECT p_id FROM " . PHONES_TABLE . " where phn_no = '" . $phn_no . "' and p_id <> '" . trim($_POST['p_id']) . "'");
 			
-			if(trim($_POST['name']) == '' || trim($_POST['phn_no']) == '' || trim($_POST['dest_no']) == '')
-			{
+
+
+			if( trim($_POST['name']) == '' || $phn_no == '' || $dest_no == ''){
 				$tw_no = '';
 				if(trim($_POST['p_id']) == '')
 				{
@@ -205,9 +210,8 @@ class tw_controller
 				}
 				$data['wp_error'] = "Please enter value for Name" . $tw_no . " and Destination Number.";
 			}
-			elseif($chkNoExists > 0)
-			{
-				$data['wp_error'] = trim($_POST['phn_no']) . " Twillo number already exists.";
+			elseif($chkNoExists > 0){
+				$data['wp_error'] = $phn_no . " Twillo number already exists.";
 			}
 			else
 			{
@@ -216,9 +220,8 @@ class tw_controller
 				else			
 					$id = 0;
 				
-				$name = $_POST['name'];
-				$phn_no = $_POST['phn_no'];
-				$dest_no = $_POST['dest_no'];
+				$name = trim( $_POST['name'] );
+				
 				
 				$table = PHONES_TABLE;
 				// add value to new record array

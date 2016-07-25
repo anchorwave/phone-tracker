@@ -3,7 +3,7 @@
 Plugin Name: WP Phone Tracker
 Plugin URI: https://www.anchorwave.com
 Description: This plugin is used to track phone numbers on twillo.com
-Version: 1.0.8
+Version: 1.0.9
 Author: Anchor Wave
 Author URI: https://www.anchorwave.com
 License: GPL2
@@ -33,7 +33,7 @@ function phone_tracker_updates(){
 	        'zip_url' => 'https://github.com/anchorwave/phone-tracker/zipball/master', // the zip url of the GitHub repo
 	        'sslverify' => true, // whether WP should check the validity of the SSL cert when getting an update, see https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/2 and https://github.com/jkudish/WordPress-GitHub-Plugin-Updater/issues/4 for details
 	        'requires' => '4.0', // which version of WordPress does your plugin require?
-	        'tested' => '4.2', // which version of WordPress is your plugin tested up to?
+	        'tested' => '4.5.3', // which version of WordPress is your plugin tested up to?
 	        'readme' => 'README.md',
 	        'access_token' => '', // Access private repositories by authorizing under Appearance > GitHub Updates when this example plugin is installed
 	    );
