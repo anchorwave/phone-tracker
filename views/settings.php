@@ -21,6 +21,6 @@
 <?php $this->wp_messages($data);?>
 <form action="" method="post" onsubmit="return checkVals(this);">
 <p><label for="tw_sid">Account SID:</label> <input type="text" id="tw_sid" name="tw_sid" size="60" value="<?php echo $data['tw_sid']?>" /></p>
-<p><label for="tw_atoken">Auth Token:&nbsp;</label> <input type="text" id="tw_atoken" name="tw_atoken" size="60" value="<?php echo $data['tw_atoken']?>" /></p>
+<p><label for="tw_atoken">Auth Token:&nbsp;</label> <input type="password" id="tw_atoken" name="tw_atoken" size="60" value="<?php echo $data['tw_atoken']?>" /></p>
 <p><input type="submit" name="tw_submit" value="Update Settings" /></p>
 </form>

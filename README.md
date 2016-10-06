@@ -11,11 +11,17 @@ Pushing updates through github may fail without the following:
 Optional:
 + Update `$config['requires']` to required version of WordPress
 
-*This is for for GitHub Updater*
+*This is for for GitHub Updater* *Do not delete*
 
-~Current Version:1.0.9~
+~Current Version:1.0.10~
 
 #### changelog
+
+**v1.0.10**
+: Fixed some weird verbiage in various admin notices
+: Changed **deactivation** hook to run on **uninstall**. SID and auth token get deleted when the plugin is deleted through wordpress, rather than on deactivation of the plugin.
+: Reduced minor php errors
+: Made Auth Token field a password input (note: this is not a security fix)
 
 **v1.0.9**
 : Changed verbiage -- "Inactivate" to "Deactivate"

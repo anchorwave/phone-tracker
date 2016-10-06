@@ -51,7 +51,7 @@ class tw_controller
 		}
 		
 		$data = array();
-		if($_POST['tw_submit'] == 'Update Settings')
+		if( isset( $_POST['tw_submit'] ) && $_POST['tw_submit'] == 'Update Settings')
 		{
 			if(trim($_POST['tw_sid']) == '' || $_POST['tw_atoken'] == '')
 			{
@@ -80,18 +80,18 @@ class tw_controller
 					
 					if(count($accounts) > 0)
 					{
-						$data['wp_msg'] = 'Please check, if following are the account active with your profile then you have enter correct credentials:<br />' . implode('<br />', $accounts);
+						$data['wp_msg'] = 'Successfully connected to the following account(s):' . implode('<br />', $accounts);
 						update_option('tw_sid', $sid);
 						update_option('tw_atoken', $token);
 					}
 					else
 					{
-						$data['wp_error'] = 'Please check again your Account SID and Auth Token both, as we are not able to verfy them.';
+						$data['wp_error'] = 'Verification failed: Please check your Account SID and Auth Token.';
 					}
 				}
 				catch(Exception $e)
 				{
-					$data['wp_error'] = 'Twillo Error: ' . $e->getMessage() . "\n Please try again later.";
+					$data['wp_error'] = 'Failure: Twillo reported the following error: <code>' . $e->getMessage() . "</code>.";
 				}
 			}
 		}
